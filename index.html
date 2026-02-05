@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Valentine ❤️</title>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: "Segoe UI", cursive;
+      background: linear-gradient(#ffe6eb, #ffd6e0);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    /* Photo */
+    img {
+      width: 60%;
+      max-width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #ff2e63;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #cc0052;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background-color: #ff4d79;
+      color: white;
+    }
+
+    #no {
+      background-color: #888;
+      color: white;
+      position: relative;
+    }
+
+    #message {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #cc0052;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      font-size: 24px;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {transform: translateY(0) scale(1); opacity: 1;}
+      100% {transform: translateY(-800px) scale(1.5); opacity: 0;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ❤️ YOUR PHOTO -->
+<img src="/Users/shikhasingla/Downloads/136d9599-8f76-43ef-9a5d-864cbc15d374.jpg" alt="Our Photo">
+
+<!-- ✨ YOUR NAMES -->
+<h1>Shikha ❤️ Saket</h1>
+<h2>Will you be my Valentine forever? 💖</h2>
+
+<button id="yes" onclick="showLove()">Yes 💘</button>
+<button id="no" onmouseover="moveNo()">No 🙈</button>
+
+<div id="message">Yayyyyy!! I love you the most in this whole universe 😘💞</div>
+
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+  <source src="us.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function showLove() {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("bgMusic").play();
+  }
+
+  function moveNo() {
+    const btn = document.getElementById("no");
+    const x = Math.random() * 300 - 150;
+    const y = Math.random() * 300 - 150;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  /* Floating hearts generator */
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.innerHTML = "❤️";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 500);
+</script>
+
+</body>
+</html>
